@@ -2,10 +2,11 @@ name = "my-app"
 main = "src/index.ts"
 compatibility_date = "2024-11-27"
 
-# compatibility_flags = [ "nodejs_compat" ]
+compatibility_flags = [ "nodejs_compat" ]
 
-# [vars]
-# MY_VAR = "my-variable"
+[vars]
+MY_VAR = "my-variable"
+OPENAI_API_KEY="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"
 
 # [[kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"
