@@ -36,3 +36,4 @@ lerna-debug.log*
 wrangler.toml
 .wrangler
 .env
+wrangler.toml

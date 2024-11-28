@@ -72,26 +72,23 @@ app.get("/analyze/:username", async (c) => {
       - Following: ${githubData.following}
       -contributions : ${total}
 
-      Write a witty analysis of this user, rate their "chillness" out of 100, and include some friendly roasting if necessary and give the chillness level it's must.
-      the output must look like : {
-      chillnessLevel : in regex ,
-      description : their roast as well as the reason why you gave that chillness level
-      }
+      You have all this information and user is trying to be chill. Write a description of this user that is witty, fun, and heavily roasty.and rate their chillness .
+      
     `;
 
     console.log(prompt);
 
     const chatCompletion = await openai.chat.completions.create({
-      model: "gpt-4",
+      model: "gpt-3.5-turbo",
       messages: [
         {
           role: "system",
-          content: "You are a witty, fun, and mildly roasty assistant.",
+          content: "You are a witty, fun, and mildly roasty assistant .",
         },
         { role: "user", content: prompt },
       ],
       max_tokens: 200,
-      temperature: 0.7,
+      temperature: 1,
     });
 
     const description = chatCompletion.choices[0]?.message?.content?.trim();
@@ -100,22 +97,9 @@ app.get("/analyze/:username", async (c) => {
       throw new Error("Failed to generate Chillguy Analyzer response.");
     }
 
-    function parseToJson(inputString: any) {
-      try {
-        const cleanedString = inputString.replace(/\\n/g, "").replace(/\\/, "");
-
-        const jsonObject = JSON.parse(cleanedString);
-        return jsonObject;
-      } catch (error) {
-        console.error("Error parsing input string to JSON:", error);
-        return null;
-      }
-    }
-
-    const responseFromAPi = parseToJson(description);
     return c.json({
       username: githubData.login,
-      responseFromAPi,
+      description,
     });
   } catch (error) {
     const errorMessage =
