@@ -18,6 +18,5 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ],
-  "regions": ["iad1"]
+  ]
 }
