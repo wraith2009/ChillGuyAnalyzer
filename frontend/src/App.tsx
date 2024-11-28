@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-
+import { Github } from "lucide-react";
 const apiUrl = import.meta.env.VITE_API_URL;
 
 const ChillDeveloperCard = () => {
@@ -34,6 +34,12 @@ const ChillDeveloperCard = () => {
   return (
     <div className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-purple-600 p-4">
       <div className="w-full md:w-1/2 flex flex-col items-center justify-center mb-6 md:mb-0 md:mr-6">
+        <h1 className="text-xl  text-white mb-4 flex gap-4">
+          Give us a star -:{" "}
+          <a href="https://github.com/wraith2009/ChillGuyAnalyzer">
+            <Github className="mt-1 text-black" />
+          </a>
+        </h1>
         <img
           src="/chillguytransparent.webp"
           alt="Chill Developer"

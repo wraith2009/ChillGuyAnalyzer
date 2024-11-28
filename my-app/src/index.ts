@@ -72,8 +72,8 @@ app.get("/analyze/:username", async (c) => {
       - Following: ${githubData.following}
       -contributions : ${total}
 
-      You have all this information and user is trying to be chill. Write a description of this user that is witty, fun, and heavily roasty.and rate their chillness .
-      
+      You have all this information and user is trying to be chill. Write a description of this user that is witty, fun, and brutal roasty.and rate their chillness .
+      give the answer in 100 words.
     `;
 
     console.log(prompt);
